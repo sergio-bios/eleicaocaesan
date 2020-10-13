@@ -1,0 +1,31 @@
+<div class="container-fluid" style="padding: 40px 15px;">
+    <div class="container"  >
+        <h2 class="text-center" style="font-family: 'OpenSans-Bold'; color: #0067af">Resultado das Elei&ccedil;&otilde;es</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-lg-10 text-center col-lg-offset-1 col-md-6 col-md-offset-3 header-candidatos">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 div-conselho-deliberativo">
+                <div class="col-lg-12 titulo-conselho">
+                    <h4>CONSELHO DELIBERATIVO</h4>
+                </div>
+                <div class="col-lg-12 info-candidato text-left" ng-repeat="dados in lstResultadoEleicao" ng-if="dados.cargo=='D'">
+                    <img src="img/f{{dados.codigo}}.png" alt="" class="img-candidato"/>
+                    <h4 class="nome-candidato">{{dados.nome}}</h4>    
+                    <h4 class="nome-candidato">Número de votos: {{dados.qtdvotos}}</h4>                 
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 titulo-conselho">
+                    <h4>CONSELHO FISCAL</h4>
+                </div>
+                <div class="col-lg-12 text-left info-candidato" ng-repeat="dado in lstResultadoEleicao" ng-if="dado.cargo=='F'">
+                    <img src="img/f{{dado.codigo}}.png" alt="" class="img-candidato"/>
+                    <h4 class="nome-candidato">{{dado.nome}}</h4>
+                    <h4 class="nome-candidato">Número de votos: {{dado.qtdvotos}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

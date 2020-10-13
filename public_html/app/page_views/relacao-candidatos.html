@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="container" style="padding: 40px 15px; font-family: 'OpenSans-Bold'; color: #0067af">
+        <h2 class="text-center">Relação de Candidatos</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-lg-10 text-center col-lg-offset-1 col-md-6 col-md-offset-3 header-candidatos">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 div-conselho-deliberativo">
+                <div class="col-lg-12 titulo-conselho">
+                    <h4>CONSELHO DELIBERATIVO</h4>
+                </div>
+                <div class="col-lg-12 info-candidato text-left" ng-repeat="dados in lstDeliberativo" ng-class="fundo">
+                    <img src="img/f{{dados.foto}}.png" alt="" class="img-candidato"/>
+                    <a ng-if="dados.curriculo !== null" href="downloads/c{{dados.curriculo}}.pdf" target="_blank">
+                        <h4 class="nome-candidato">{{dados.nome}}</h4> 
+                    </a>
+                    <h4 ng-if="dados.curriculo === null" class="nome-candidato">{{dados.nome}}</h4> 
+                    <a ng-if="dados.curriculo !== null" href="downloads/c{{dados.curriculo}}.pdf" target="_blank">
+                        <h6>Ver Currículo</h6>
+                    </a>
+                    <h6>{{dados.sobre}}</h6>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 titulo-conselho">
+                    <h4>CONSELHO FISCAL</h4>
+                </div>
+                <div class="col-lg-12 text-left info-candidato" ng-repeat="dado in lstFiscal"  ng-class="fundoFiscal">
+                    <img src="img/f{{dado.foto}}.png" alt="" class="img-candidato"/>
+                    <a ng-if="dado.curriculo !== null" href="downloads/c{{dado.curriculo}}.pdf" target="_blank">
+                        <h4 class="nome-candidato">{{dado.nome}}</h4> 
+                    </a>
+                    <h4 ng-if="dado.curriculo === null" class="nome-candidato">{{dado.nome}}</h4> 
+                    <a ng-if="dado.curriculo !== null" href="downloads/c{{dado.curriculo}}.pdf" target="_blank">
+                        <h6>Ver Currículo</h6>
+                    </a>
+                    <h6>{{dado.sobre}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

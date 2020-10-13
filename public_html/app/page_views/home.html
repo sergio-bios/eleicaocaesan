@@ -1,0 +1,146 @@
+<span ng-if="periodoEleicao && eleitorValido == 2">
+    <div class="container-fluid" style="margin-bottom: 20px">
+        <div class="container">
+            <div class="col-lg-8 text-center col-lg-offset-2" style="padding: 0px">
+                <br>
+                <button class="btn-regulamento" style="background-color: #0067af; margin-top: 20px">
+                    Seu voto já foi computado.
+                </button>
+            </div>
+        </div>
+    </div>
+</span>
+
+<span ng-if="alertaLogin && eleitorValido != 2">
+    <div class="container-fluid" style="margin-bottom: 20px">
+        <div class="container">
+            <div class="col-lg-8 text-center col-lg-offset-2" style="padding: 0px">
+                <br>
+                <button class="btn-regulamento" style="background-color: #0067af; margin-top: 20px">
+                    Dados inválidos.
+                </button>
+            </div>
+        </div>
+    </div>
+</span>
+
+
+<span ng-if="avisoResultado">
+    <div class="container-fluid" style="margin-bottom: 20px">
+        <div class="container">
+            <div class="col-lg-8 text-center col-lg-offset-2" style="padding: 0px">
+                <br>
+                <button class="btn-regulamento" style="background-color: #0067af; margin-top: 20px">
+                    Resultado disponível a partir de: {{dataResultado}}
+                </button>
+            </div>
+        </div>
+    </div>
+</span>
+
+<span ng-if="periodoEleicao && eleitorValido == 1">
+    <div class="container-fluid">
+        <div class="container" style="padding: 40px 15px; font-family: 'OpenSans-Bold'; color: #0067af">
+            <h3 class="text-center">Siga os passos abaixo:</h3>
+        </div>
+    </div>
+    <div class="container-fluid" style="border-bottom: 1px #e3e3e3 solid">
+        <div class="container">
+            <div class="col-lg-8 text-center col-lg-offset-2 col-md-6 col-md-offset-3" style="height: 200px; padding: 0px">
+                <img src="img/1-1.png" alt="" class="passo1"/>            
+                <img src="img/2-2.png" alt="" class="passo2"/>
+                <img src="img/3-2.png" alt="" class="passo3"/>            
+            </div>
+        </div>
+    </div>
+</span>
+
+<div class="container-fluid">
+    <div class="container" style="padding: 70px 15px">
+        <div class="col-lg-8 text-center col-lg-offset-2" style="padding: 0px">
+            <a href="#/documentos-importantes" style="text-decoration: none">
+                <div class="col-lg-4" style="padding: 0px">
+                    <img src="img/divisoria.png" alt="" class="hidden-xs" style="float: right"/>
+                    <img src="img/documentos-importantes.png" alt=""/>
+                    <h4 style="font-family: 'OpenSans-Bold'; color: #0067af">Documentos<br> Importantes</h4>
+                </div>
+            </a>
+            <a href="#/relacao-candidatos">
+                <div class="col-lg-4" style="padding: 0px">
+                    <img src="img/relacao-candidatos.png" alt=""/>
+                    <h4 style="font-family: 'OpenSans-Bold'; color: #0067af">Rela&ccedil;&atilde;o de<br> Candidatos</h4>
+                </div>
+            </a>
+            <span style="text-decoration: none">
+                <div class="col-lg-4" style="padding: 0px; cursor: pointer" ng-click="AbrirResultado()">
+                    <img src="img/divisoria.png" alt="" class="hidden-xs" style="float: left"/>
+                    <img src="img/resultados-eleicao.png" alt=""/>
+                    <h4 style="font-family: 'OpenSans-Bold'; color: #0067af">Resultado<br>  das Elei&ccedil;&otilde;es</h4>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-bottom: 100px">
+    <div class="container">
+        <div class="col-lg-8 text-center col-lg-offset-2" style="padding: 0px">
+            <a href="downloads/Regulamento-Eleição-Caesan-2020.pdf" target="_blank" style="text-decoration: none">
+                <button class="btn-regulamento">
+                    Ler Regulamento Eleitoral
+                </button>
+            </a>
+            <span ng-if="periodoEleicao && eleitorValido == 1">
+                <a href="#/votacao" style="text-decoration: none">
+                    <button class="btn-termos">
+                        Aceito os Termos do Regulamento<br> Eleitoral e quero VOTAR 
+                    </button>
+                </a>
+            </span>
+            <span ng-if="periodoEleicao && eleitorValido == 0">
+                <button class="btn-termos" data-toggle="modal" data-target="#logar">
+                    Aceito os Termos do Regulamento<br> Eleitoral e quero VOTAR
+                </button>
+
+                <div id="logar" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Área do Beneficiário</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group" style="text-align: left">
+                                    <label for="matricula">Matrícula</label>
+                                    <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched user-success" id="matricula" placeholder="Matrícula" ng-model="objVO0418.cpf">
+                                </div>
+                                <div class="form-group" ng-show="alterarSenha" style="text-align: left">                                               
+                                    <label for="data">Data de nascimento</label>
+                                    <input type="date" class="form-control ng-pristine ng-untouched ng-valid ng-empty" id="data" ng-model="objVO0418.dtnascimento" placeholder="Data de nascimento">
+                                </div>
+                                <div class="form-group" style="text-align: left">
+                                    <label for="senha">Senha</label>
+                                    <input type="password" class="form-control ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched" id="senha" placeholder="Senha" ng-model="objVO0418.password1">
+                                </div>
+                                <div class="form-group" ng-show="alterarSenha" style="text-align: left">
+                                    <label for="confsenha">Confirmar Senha</label>
+                                    <input type="password" class="form-control ng-pristine ng-valid ng-empty ng-touched user-success" id="confsenha" placeholder="Confirmar senha" ng-model="objVO0418.password2">
+                                </div>
+                                <di class="form-group">
+                                    <input ng-show="!alterarSenha" type="button" class="btn" value="Acessar" ng-click="Logar()" data-dismiss="modal" style="background-color: #0067af; width: 100%; color: #ffffff"> 
+                                    <input ng-show="alterarSenha" type="button" class="btn btn-success" value="Alterar/Cadastrar senha" data-dismiss="modal" style="width: 100%;" ng-click="cadSenha()">
+                                </di>
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-show="!alterarSenha" type="button" class="btn btn-warning" ng-click="AlterarSenha()">Alterar/Cadastrar senha</button>
+                                <button ng-show="alterarSenha" type="button" class="btn btn-warning" ng-click="VoltarLogin()">Voltar</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>            
+        </div>
+    </div>
+</div>

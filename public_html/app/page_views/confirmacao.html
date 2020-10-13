@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="container" style="padding: 40px 15px; font-family: 'OpenSans-Bold'; color: #0067af">
+        <h3 class="text-center">Siga os passos abaixo:</h3>
+    </div>
+</div>
+<div class="container-fluid" style="border-bottom: 1px #e3e3e3 solid">
+    <div class="container">
+        <div class="col-lg-10 text-center col-lg-offset-1 col-md-10 col-md-offset-1" style="height: 200px; padding: 0px">
+            <img src="img/1-2.png" alt="" class="passo1"/>            
+            <img src="img/2-2.png" alt="" class="passo2"/>
+            <img src="img/3-1.png" alt="" class="passo3"  style="margin-bottom: 5px"/>            
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container" style="padding: 40px 15px; font-family: 'OpenSans-Bold'; color: #0067af">
+        <h2 class="text-center">Confirmação de Votos</h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-lg-10 text-center col-lg-offset-1 col-md-8 col-md-offset-2 header-candidatos">
+            <div class="col-lg-6 col-md-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titulo-conselho" style="margin-bottom: 15px">
+                    <h4>CONSELHO DELIBERATIVO</h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left info-candidato" ng-repeat="dado in lstVotadosDeliberativo">
+                    <img src="img/f{{dado.foto}}.png" alt="" class="img-candidato"/>
+                    <h4 class="nome-candidato">{{dado.nome}}</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 titulo-conselho" style="margin-bottom: 15px">
+                    <h4>CONSELHO FISCAL</h4>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left info-candidato" ng-repeat="dados in lstVotadosFiscal">
+                    <img src="img/f{{dados.foto}}.png" alt="" class="img-candidato"/>
+                    <h4>{{dados.nome}}</h4>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success" ng-if="votoComputado">
+                    <strong>Parabéns!</strong> Seu voto foi gravado com sucesso.
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                    <a href="#/votacao" style="text-decoration: none">
+                        <button class="botao-alterar">Alterar</button>
+                    </a>
+                </div>                
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left">
+                    <button ng-click="gravarVotos()" class="botao-votar">Confirmar Votos</button>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
